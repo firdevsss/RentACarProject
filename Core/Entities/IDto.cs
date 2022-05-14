@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DataAccess.Abstract
+namespace Core.Entities
 {
-    public interface IColorsDal
+    public interface IDto
     {
     }
 }

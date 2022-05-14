@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using Entities.Concrete;
+using Entities.DTOs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,10 +16,10 @@ namespace DataAccess.Concrete.InMemory
         {
             _cars = new List<Car>
             {
-                new Car{ Id=1, BrandId = 3, ColorId=4, DailyPrice=1800, Description="Chevrolet İMPALA", ModelYear="1970"},
-                new Car{ Id=2, BrandId = 7, ColorId=9, DailyPrice=3000, Description="Mercedes", ModelYear="2022"},
-                new Car{ Id=3, BrandId = 5, ColorId=6, DailyPrice=1900, Description="Rolls ROYCE", ModelYear="1980"},
-                new Car{ Id=4, BrandId = 1, ColorId=8, DailyPrice=3800, Description="CADİLLAC", ModelYear="2017"},
+                new Car{ Id=1, BrandId = 3, ColorId=4, DailyPrice=1800, Description="Chevrolet İMPALA", ModelYear=1970},
+                new Car{ Id=2, BrandId = 7, ColorId=9, DailyPrice=3000, Description="Mercedes", ModelYear=2022},
+                new Car{ Id=3, BrandId = 5, ColorId=6, DailyPrice=1900, Description="Rolls ROYCE", ModelYear=1980},
+                new Car{ Id=4, BrandId = 1, ColorId=8, DailyPrice=3800, Description="CADİLLAC", ModelYear=2017},
             };
         }
         public void Add(Car car)
@@ -50,6 +51,11 @@ namespace DataAccess.Concrete.InMemory
         public List<Car> GetAllById(int categoryId)
         {
             return _cars.Where(c => c.Id == categoryId).ToList();
+        }
+
+        public List<CarDetailDto> GetCarDetails()
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Car car)
