@@ -9,7 +9,7 @@ using System.Text;
 
 namespace DataAccess.Concrete
 {
-    public class EfBrandDal : EfEntitiyRepositoryBase<Brand, RentaCarContext>, IBrandDal
+    public class EfBrandDal : EfEntityRepositoryBase<Brand, RentaCarContext>, IBrandDal
     {
     }  
 }

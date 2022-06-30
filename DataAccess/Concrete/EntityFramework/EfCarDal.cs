@@ -12,7 +12,7 @@ using System.Text;
 
 namespace DataAccess.Concrete
 {
-    public class EfCarDal : EfEntitiyRepositoryBase<Car, RentaCarContext>, IColorDal
+    public class EfCarDal : EfEntityRepositoryBase<Car, RentaCarContext>, ICarDal
     {
         public List<CarDetailDto> GetCarDetails()
         {
@@ -20,15 +20,18 @@ namespace DataAccess.Concrete
             {
                 var result = from c in context.Cars
                              join b in context.Brands
-                             on c.Id equals b.BrandId
+                             on c.ColorId equals b.Id
                              select new CarDetailDto
                              {
                                   
                                  CarId = c.Id,
+                                 ColorId = c.ColorId,
                                  BrandName = b.BrandName,
+                                 BrandId = b.Id,
                                  Description = c.Description,
                                  DailyPrice = c.DailyPrice,
-                                 CarName = c.CarName,
+                                 ModelYear = c.ModelYear,
+                                 CarName = c.CarName
                              };
                 return result.ToList();
 
