@@ -43,6 +43,11 @@ namespace Business.Concrete
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(r => r.ReturnDate == returnDate));
         }
 
+        public IDataResult<List<Rental>> GetById(int id)
+        {
+            return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll());
+        }
+
         public IResult Update(Rental rental)
         {
             _rentalDal.Update(rental);
